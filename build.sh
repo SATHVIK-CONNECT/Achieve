@@ -2,6 +2,7 @@
 # Exit on error
 set -o errexit
 
+
 # Install dependencies (adjust if using poetry etc.)
 pip install -r requirements.txt
 
