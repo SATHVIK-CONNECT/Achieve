@@ -1,0 +1,23 @@
+{% extends 'capstone/layout.html' %}{% block body %}
+<center>
+  <form action="{% url 'login' %}" class="form" method="post">
+    {% csrf_token %}
+    <h1>Login</h1>
+    <br />
+    <div>
+      <input
+        autofocus
+        type="text"
+        name="username"
+        placeholder="Enter username"
+        autocomplete="off"
+      />
+    </div>
+    <div>
+      <input type="password" name="password" placeholder="Enter Password" />
+    </div>
+    <input type="submit" value="Login" class="btn" /><br />
+    <a href="{% url 'register' %}">Don't have an account?<span> Sign up</span></a>
+  </form>
+</center>
+{% endblock %}

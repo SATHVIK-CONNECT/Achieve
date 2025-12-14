@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Sharp {% endblock %}</title>
+    <link href="{% static 'capstone/styles.css' %}" rel="stylesheet" />
+  </head>
+  <body>
+    {% if user.is_authenticated %}
+    <header>
+      <h1><a href="{% url 'index' %}"> Sharp</a></h1>
+      <div style="font-size: 18px">
+        <a href="{% url 'scores' %}" style="margin: 0px 5px">Scores</a>
+        <a href="{% url 'profile' %}" style="margin: 0px 5px">{{ user }}</a>
+      </div>
+    </header>
+
+    {% endif %}
+
+    <div class="body">{% block body%} {% endblock %}</div>
+    <footer style="position: fixed; bottom: 0">
+      {% if user.id == 1 %}
+      <h2
+        style="
+          padding: 10px 20px;
+          padding-right: 30px;
+          background: #fd94e6;
+          border-top-right-radius: 30px;
+        "
+      >
+        <a href="{% url 'adminUi' %}">Admin</a>
+      </h2>
+      {% endif %}
+    </footer>
+  </body>
+
+  <script src="{% static 'capstone/scripts.js' %}"></script>
+  <script src="https://kit.fontawesome.com/98243d2037.js" crossorigin="anonymous"></script>
+</html>

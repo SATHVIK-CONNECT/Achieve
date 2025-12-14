@@ -1,0 +1,41 @@
+{% extends 'capstone/layout.html' %}{% block body %}
+<h1>Create Quizzes & Questions</h1>
+<h1 class="btn click" id="createQuizBtn">Quiz</h1>
+<form method="POST" id="createQuiz" style="display: none" action="{% url 'addQuiz' %}">
+  {% csrf_token %}
+  <label>Quiz</label>
+  <input type="text" id="quiz" name="quiz" />
+  <br />
+  <input type="submit" class="btn" style="margin: 10px 0px" />
+</form>
+<h1 class="btn click" id="createQuestionBtn" onclick="">Question</h1>
+<form method="POST" id="createQuestion" style="display: none" action="{% url 'addQuestion' %}">
+  {% csrf_token %}
+  <label>Question</label>
+  <input type="text" id="quest" name="quest" />
+  <br />
+  <label>Option A</label>
+  <input type="text" id="optA" name="optA" />
+  <br />
+  <label>Option B</label>
+  <input type="text" id="optB" name="optB" />
+  <br />
+  <label>Option C</label>
+  <input type="text" id="optC" name="optC" />
+  <br />
+  <label>Option D</label>
+  <input type="text" id="optD" name="optD" />
+  <br />
+  <label>Solution</label>
+  <input type="text" id="choice" name="choice" />
+  <br />
+  <label>Category</label>
+  <select id="category" name="category">
+    {% for category in categories %}
+    <option value="{{ category }}">{{ category }}</option>
+    {% endfor %}
+  </select>
+  <br />
+  <input type="submit" class="btn" style="margin: 10px 0px" />
+</form>
+{% endblock %}

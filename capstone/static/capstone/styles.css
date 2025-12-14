@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+body {
+  width: 100%;
+}
+
+.form {
+  width: 75%;
+  border: 1px solid black;
+  padding: 10px;
+  input {
+    width: 100%;
+    height: 45px;
+    margin: 5px;
+    padding-left: 5px;
+  }
+  .btn {
+    border: none;
+  }
+}
+
+header {
+  width: 100%;
+  padding: 20px 10px;
+  background: #009aee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 0px 2px black;
+  a {
+    color: white;
+  }
+}
+
+.body {
+  padding: 10px;
+}
+
+.container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+}
+
+.btnattempt {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #009aee;
+  color: white;
+  font-weight: bold;
+}
+
+.quiz {
+  padding: 20px 10px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.question {
+  border: 1px solid;
+  padding: 10px;
+  margin: 10px;
+}
+
+.answer {
+  display: none;
+}
+
+.category {
+  padding: 10px 20px;
+  border-radius: 30px;
+  width: 140px;
+  color: white;
+  font-weight: bold;
+  background: linear-gradient(200deg, blueviolet, rgb(253, 20, 202), #009aee);
+}
+
+.completedstatus {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: white;
+  width: 150px;
+  font-size: 20px;
+  background: linear-gradient(200deg, blueviolet, rgb(253, 20, 202), #009aee);
+}
+
+/* Quiz */
+.flex {
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+}
+.option {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0px;
+  cursor: pointer;
+}
+.qst {
+  margin: 30px 0px 10px 0px;
+}
+.inp {
+  margin: 0px 5px;
+  cursor: pointer;
+}
+.btn {
+  padding: 10px 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+/*  Scores */
+.achivement {
+  width: 150px;
+  text-align: center;
+  margin: 10px;
+  padding: 10px 5px;
+  background: linear-gradient(160deg, gold, yellow);
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 50px;
+}
+/* Profile */
+.desc {
+  margin: 15px 0px;
+}
+.click {
+  margin: 10px 0px;
+}

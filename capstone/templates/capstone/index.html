@@ -1,0 +1,46 @@
+{% extends 'capstone/layout.html' %}{% block body %} {% if user.is_authenticated %}
+
+<h1 style="margin-bottom: 15px">Improve your skills</h1>
+<div class="container">
+  {% for quiz in incompleted %}
+  <div class="quiz">
+    <h2>{{ quiz.quiz }}</h2>
+    <br />
+    <p>Questions: 30</p>
+    <p>Marks: 30</p>
+    <br />
+    <a href="{% url 'quiz' quiz.quiz.id %}" onclick="reloadPrevention()" class="btnattempt"
+      >Attempt</a
+    >
+  </div>
+  {% endfor %} {% if completed %}
+  <h1 class="completedstatus">Completed</h1>
+  {% for quiz in completed %}
+  <div class="quiz">
+    <h2><a href="{% url 'quiz' quiz.quiz.id %}">{{ quiz.quiz }}</a></h2>
+    <br />
+    <p>Questions: 30</p>
+    <p>Marks: 30</p>
+    <p>Score: {{quiz.score}}</p>
+    <br />
+  </div>
+  {% endfor %} {% endif %}
+</div>
+
+{%else%}
+<div class="form">
+  <h1>Already have an account?</h1>
+  <br />
+  <a href="{% url 'login' %}"
+    ><button class="btn">Get Started&emsp;<i class="fa-solid fa-arrow-right"></i></button
+  ></a>
+</div>
+<br />
+<div class="form">
+  <h1>New to this Website?</h1>
+  <br />
+  <a href="{% url 'register' %}"
+    ><button class="btn">Get Started&emsp;<i class="fa-solid fa-arrow-right"></i></button
+  ></a>
+</div>
+{% endif %} {% endblock %}

@@ -1,0 +1,7 @@
+{% extends 'capstone/layout.html' %}
+<!-- Body -->
+{% block body %}
+<h1>Hello, {{ user }}</h1>
+<h4 class="desc">Completed quizzes: {{count}}</h4>
+<h4 class="desc">Not completed: {{incomplete}}</h4>
+<a href="{% url 'logout' %}" class="btn">Log Out</a>{% endblock %}

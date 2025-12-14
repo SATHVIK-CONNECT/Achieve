@@ -1,0 +1,100 @@
+{% extends 'capstone/layout.html' %}
+<!-- Body -->
+{% block body %}
+<!-- Form -->
+{% if quiz.isActiveStatus %}
+<form method="POST">
+  <div class="flex">
+    <!-- QUIZ Name-->
+    <h1>{{usersquiz}}</h1>
+    <!-- Score -->
+    <h3>
+      Score:
+      <span id="score_{{quiz.id}}">{{quiz.score}}</span>
+    </h3>
+  </div>
+  <!-- Loop -->
+  {% for quest in potp %}
+  <!-- Question -->
+  <div class="col">
+    {% csrf_token %}
+    <p class="question_{{quest.id}} qst">{{quest}}</p>
+    <!-- Options -->
+    <label class="option" for="A_{{quest.id}}"
+      ><input
+        type="radio"
+        id="A_{{quest.id}}"
+        class="inp"
+        value="A"
+        name="quest_{{quest.id}}"
+        required
+      />{{quest.a}}</label
+    >
+    <label class="option" for="B_{{quest.id}}"
+      ><input
+        type="radio"
+        id="B_{{quest.id}}"
+        class="inp"
+        value="B"
+        name="quest_{{quest.id}}"
+        required
+      />{{quest.b}}</label
+    >
+    <label class="option" for="C_{{quest.id}}"
+      ><input
+        type="radio"
+        id="C_{{quest.id}}"
+        class="inp"
+        value="C"
+        name="quest_{{quest.id}}"
+        required
+      />{{quest.c}}</label
+    >
+    <label class="option" for="D_{{quest.id}}"
+      ><input
+        type="radio"
+        id="D_{{quest.id}}"
+        class="inp"
+        value="D"
+        name="quest_{{quest.id}}"
+        required
+      />{{quest.d}}</label
+    >
+
+    <nav aria-label="Page navigation example">
+      <ul
+        class="pagination d-flex justify-content-center"
+        style="margin-top: 20px; text-align: right"
+      >
+        {% if potp.has_next %}
+        <li class="page-item">
+          <a
+            class="page-link btn"
+            id="btn_{{quest.id}}"
+            onclick="btnhandler('{{quest.id}}', '{{quest.choice}}','{{quiz.id}}')"
+            href="?page={{ potp.next_page_number }}"
+            >Next</a
+          >
+        </li>
+        {% else %}
+        <li class="page-item">
+          <input
+            class="page-link btn"
+            type="submit"
+            id="submit_{{quiz.id}}"
+            onclick="submission('{{quiz.id}}', '{{quest.choice}}')"
+            value="Submit"
+          />
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+    <h3 id="option_{{quest.id}}"></h3>
+
+    <h3 id="choice_{{quest.id}}" style="display: none">Correct Option: {{quest.choice}}</h3>
+  </div>
+  {% endfor %}
+</form>
+{% else %}
+<h1>Result: {{quiz.score}}</h1>
+{% endif %} {% endblock %}

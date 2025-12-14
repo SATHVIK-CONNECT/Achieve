@@ -1,0 +1,10 @@
+{% extends 'capstone/layout.html' %}
+<!-- Body -->
+{% block body %}
+<!-- Head -->
+  <h1>Hello, {{user}}</h1>
+  <h3 style="margin-top: 20px">Your achivements:</h3>
+</div>
+{% for quiz in quizs %}
+<p class="achivement"><a href="{% url 'quiz' quiz.quiz.id %}">{{ quiz.quiz }}</a></p>
+{% endfor %} {% endblock %}
