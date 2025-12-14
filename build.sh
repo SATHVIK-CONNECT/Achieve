@@ -4,7 +4,7 @@ set -o errexit
 
 
 # Install dependencies (adjust if using poetry etc.)
-pip install -r requirements.txt
+# pip install -r requirements.txt
 
 # Convert static asset files
 python manage.py collectstatic --no-input
